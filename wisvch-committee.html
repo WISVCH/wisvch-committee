@@ -16,7 +16,12 @@
     }
 
     #container img {
+      margin-top: 5px;
       width: 70px;
+    }
+
+    #container h3 {
+      margin: 5px 0;
     }
   </style>
   <h2><span id="committeename"></span> Committee of W.I.S.V. 'Christiaan Huygens'</h2>
@@ -29,6 +34,7 @@
 (function(document, customElements, fetch) {
   // Points to this document which has the template
   const doc = document.currentScript.ownerDocument;
+  const docLocation = doc.baseURI.substring(0, doc.baseURI.lastIndexOf('/'));
 
   class WisvchCommittee extends HTMLElement {
     constructor() {
@@ -54,7 +60,7 @@
 
         if (member.img) {
           const img = document.createElement('img');
-          img.src = `icons/${member.img}.svg`;
+          img.src = `${docLocation}/icons/${member.img}.svg`;
           div.appendChild(img);
         }
 
